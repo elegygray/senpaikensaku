@@ -1,8 +1,19 @@
 <div class="user-profile">
-  <div class="icon text-center">
+  <div class="icon text-left">
     <img src="<%= gravatar_url(@user, size: 100) %>" alt="" class="img-circle">
   </div>
-  <div class="name text-center">
+  <div class="name text-left">
     <h1><%= @user.name %></h1>
   </div>
+  <% if @information %>
+    <div>
+      <%= @information.highschool %>
+      <%= @information.university %>
+      <%= @information.faculty %>
+      <%= @information.content %>
+    </div>
+    <div>
+      <%= link_to "Delete", information_path, method: :delete, data: { confirm: "本当に削除しますか?" }, class: 'btn btn-danger btn-xs' %>
+    </div>
+  <% end %>
 </div>
