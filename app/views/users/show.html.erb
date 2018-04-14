@@ -2,6 +2,11 @@
   <div class="icon text-left">
     <img src="<%= gravatar_url(@user, size: 100) %>" alt="" class="img-circle">
   </div>
+  <% if @user != current_user %>
+    <div class = "follow text-right">
+      <%= render 'relationships/follow_button', user: @user %>
+    </div>
+  <% end %>
   <div class="name text-left">
     <h1><%= @user.name %></h1>
   </div>
@@ -12,8 +17,10 @@
       <%= @information.faculty %>
       <%= @information.content %>
     </div>
-    <div>
-      <%= link_to "Delete", information_path, method: :delete, data: { confirm: "本当に削除しますか?" }, class: 'btn btn-danger btn-xs' %>
-    </div>
+    <% if @user == current_user %>
+      <div>
+        <%= link_to "Delete", information_path, method: :delete, data: { confirm: "本当に削除しますか?" }, class: 'btn btn-danger btn-xs' %>
+      </div>
+    <% end %>
   <% end %>
 </div>

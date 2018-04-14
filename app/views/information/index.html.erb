@@ -1,2 +1,23 @@
-<h1>Information#index</h1>
-<p>Find me in app/views/information/index.html.erb</p>
+<div class="search">
+  <div class="row">
+    <div class="text-center">
+      <%= form_tag(information_index_path, method: :get, class: 'form-inline') do %>
+        <div class="form-group">
+          <%= text_field_tag :highschool, @highschool, class: 'form-control input-lg', placeholder: "高校名を入力", size: 20 %>
+        </div>
+        <div class="form-group">
+          <%= text_field_tag :university, @university, class: 'form-control input-lg', placeholder: "大学名を入力", size: 20 %>
+        </div>
+        <div class="form-group">
+          <%= text_field_tag :faculty, @faculty, class: 'form-control input-lg', placeholder: "学部名を入力", size: 20 %>
+        </div>
+        <div class="form-group">
+          <%= text_field_tag :content, @content, class: 'form-control input-lg', placeholder: "キーワードを入力", size: 20 %>
+        </div>
+        <%= submit_tag '先輩を検索', class: 'btn btn-success btn-lg' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= render 'search', results: @results %>

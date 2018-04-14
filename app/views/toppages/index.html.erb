@@ -2,7 +2,7 @@
   <div class="cover">
     <div class="cover-inner">
       <div class="cover-contents">
-        <h1>高校の先輩と繋がろう</h1>
+        <h1>もっと自由に進路を選ぼう</h1>
         <% unless logged_in? %>
           <%= link_to '先輩検索を始める', signup_path, class: 'btn btn-success btn-lg' %>
         <% end %>
@@ -11,4 +11,9 @@
   </div>
 <% end %>
 
-<p>テスト</p>
+<% if logged_in? and @followings.present? %>
+  <%= render 'detail', followings: @followings %>
+<% end %>
+  
+  
+

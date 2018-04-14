@@ -1,0 +1,22 @@
+<% if results %>
+  <div class="row">
+    <% results.each do |result| %>
+      <div class="information">
+        <div class="col-md-3 col-sm-4 col-xs-12">
+          <div class="panel panel-default">
+            <div class="icon text-center panel-heading">
+              <% @user = User.find_by(id: result.user_id) %>
+              <img src="<%= gravatar_url(@user, size: 100) %>" alt="" class="img-circle">
+            </div>
+            <div class="panel-body">
+              <p class="information-title name"><%= link_to @user.name, @user %></p>
+              <p class="information-title"><%= result.highschool %></p>
+              <p class="information-title"><%= result.university %></p>
+              <p class="information-title"><%= result.faculty %></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

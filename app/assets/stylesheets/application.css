@@ -41,5 +41,39 @@ footer {
   margin: 0 0 20px 0;
   color: #fff;
   font-weight: bold;
+  font-family: "Noto Sans Japanese";
   letter-spacing: 0.15em;
 }
+
+/* search */
+.search {
+  margin-bottom: 20px;
+}
+
+/* item */
+.information .panel-body {
+  height: 100%;
+}
+.information .panel-heading {
+  height: 200px;
+}
+.information .panel-heading img {
+  height: 80%;
+  max-width: 80%;
+}
+.information-title {
+  /* 文の行数を2行に保ち、最後に ... を追加するスタイル */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.name{
+  font-size: large;
+}
+.follow{
+  width:200px;
+  height:100px;
+  float:right;
+}
+
