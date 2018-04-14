@@ -48,6 +48,9 @@ class InformationController < ApplicationController
       end
     end
   end
+  
+  def show
+  end
 
   def create
     @information = current_user.build_information(information_params)
@@ -59,7 +62,21 @@ class InformationController < ApplicationController
       render :new
     end
   end
-
+  
+  def edit
+    @information = current_user.information
+  end
+  
+  def update
+    @information = current_user.information
+    if @information.update(information_params)
+      flash[:success] = '情報は正常に更新されました'
+      redirect_to current_user
+    else
+      flash.now[:danger] = '情報は更新されませんでした'
+      render :edit
+    end
+  end
   def destroy
     @information.destroy
     flash[:success] = '削除に成功しました'

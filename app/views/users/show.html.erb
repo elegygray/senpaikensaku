@@ -11,15 +11,29 @@
     <h1><%= @user.name %></h1>
   </div>
   <% if @information %>
-    <div>
-      <%= @information.highschool %>
-      <%= @information.university %>
-      <%= @information.faculty %>
-      <%= @information.content %>
+    <table class = "table table-bordered">
+      <tr>
+        <td width = "100">高校</td>
+        <td><%= @information.highschool %></td>
+      </tr>
+      <tr>
+        <td width = "100">大学</td>
+        <td><%= @information.university %></td>
+      </tr>
+      <tr>
+        <td width = "100">学部</td>
+        <td><%= @information.faculty %></td>
+      </tr>
+      <tr>
+        <td width = "100">経験</td>
+        <td><%= simple_format(@information.content) %></td>
+      </tr>
+    </table>
     </div>
     <% if @user == current_user %>
       <div>
-        <%= link_to "Delete", information_path, method: :delete, data: { confirm: "本当に削除しますか?" }, class: 'btn btn-danger btn-xs' %>
+        <%= link_to "編集", edit_information_path(@information), class: 'btn btn-default btn-xs'%>
+        <%= link_to "削除", information_path, method: :delete, data: { confirm: "本当に削除しますか?" }, class: 'btn btn-danger btn-xs' %>
       </div>
     <% end %>
   <% end %>

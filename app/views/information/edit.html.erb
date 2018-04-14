@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-offset-3 col-xs-6">
       <div class="panel panel-default">
-        <div class="panel-heading">情報を入力する</div>
+        <div class="panel-heading">情報を編集する</div>
         <div class="panel-body">
           <%= form_for(@information) do |f| %>
             <div class="form-group">
@@ -26,7 +26,7 @@
             </div>
 
             <div class="text-right">
-              <%= f.submit '登録する', class: 'btn btn-success' %>
+              <%= f.submit '編集する', class: 'btn btn-success' %>
             </div>
           <% end %>
         </div>
