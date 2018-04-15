@@ -14,6 +14,12 @@
       <ul class="nav navbar-nav navbar-right">
         <% if logged_in? %>
             <li>
+              <%= link_to users_path do %>
+                <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span>
+                ユーザ一覧
+              <% end %>
+            </li>
+            <li>
               <%= link_to information_index_path do %>
                 <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
                 先輩を検索

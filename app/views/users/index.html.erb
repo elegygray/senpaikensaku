@@ -1,16 +1,15 @@
-<% if followings %>
+<% if @users %>
   <div class="row">
-    <% followings.each do |following| %>
+    <% @users.each do |user| %>
       <div class="information">
         <div class="col-md-3 col-sm-4 col-xs-12">
           <div class="panel panel-default">
             <div class="icon text-center panel-heading">
-              <% @user = User.find_by(id: following.id) %>
-              <img src="<%= gravatar_url(@user, size: 100) %>" alt="" class="img-circle">
+              <img src="<%= gravatar_url(user, size: 100) %>" alt="" class="img-circle">
             </div>
             <div class="panel-body">
-              <p class="information-title name"><%= link_to @user.name, @user %></p>
-              <% @information = @user.information  %>
+              <p class="information-title name"><%= link_to user.name, user %></p>
+              <% @information = user.information  %>
               <p class="information-title"><%= @information.highschool %></p>
               <p class="information-title"><%= @information.university %></p>
               <p class="information-title"><%= @information.faculty %></p>
@@ -20,5 +19,5 @@
       </div>
     <% end %>
   </div>
-  <%= paginate followings %>
+  <%= paginate @users %>
 <% end %>

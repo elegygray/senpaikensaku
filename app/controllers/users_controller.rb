@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:show, :followings]
+  before_action :require_user_logged_in, only: [:index, :show, :followings]
+  def index
+    @users = User.all.page(params[:page])
+  end
   def show
     @user = User.find(params[:id])
     @information = @user.information
