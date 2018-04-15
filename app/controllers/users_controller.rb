@@ -24,6 +24,21 @@ class UsersController < ApplicationController
     end
   end
   
+  def edit
+    @user = current_user
+  end
+  
+  def update
+    @user = current_user
+    if @user.update(user_params)
+      flash[:success] = '編集に成功しました'
+      redirect_back(fallback_location: root_path)
+    else
+      flash.now[:danger] = '編集できませんでした'
+      render 'edit'
+    end
+  end
+  
   def followings
     @user = User.find(params[:id])
     @followings = @user.followings.page(params[:page])

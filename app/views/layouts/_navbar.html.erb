@@ -47,6 +47,10 @@
                 </li>
                 <li role="separator" class="divider"></li>
                 <li>
+                  <%= link_to 'ユーザー情報編集', edit_user_path(current_user) %>
+                </li>
+                <li role="separator" class="divider"></li>
+                <li>
                   <li><%= link_to 'ログアウト', logout_path, method: :delete %></li>
                 </li>
               </ul>
