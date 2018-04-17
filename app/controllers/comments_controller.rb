@@ -6,13 +6,13 @@ class CommentsController < ApplicationController
     @user = User.find(params[:user_id])
     @comment = @user.comments.build(comment_params)
     @comment.user_id = @user.id
-    if @comment.save!
+    if @comment.save
       redirect_to @user
       CommentMailer.received_email(@user, @comment).deliver
       flash[:success] = '質問が送信されました'
     else
       flash.now[:danger] = '質問が送信されませんでした'
-      redirect_to @user
+      render template: "users/show"
     end
   end
   
