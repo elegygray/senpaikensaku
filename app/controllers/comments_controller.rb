@@ -4,8 +4,8 @@ class CommentsController < ApplicationController
 
   def create
     @user = User.find(params[:user_id])
-    @comment = @user.comments.build(comment_params)
-    @comment.user_id = @user.id
+    @comment = Comment.new(comment_params)
+    @comment.user_id = current_user.id
     @information = @user.information
     if @comment.save
       redirect_to @user
