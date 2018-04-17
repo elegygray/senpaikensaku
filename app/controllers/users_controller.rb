@@ -7,7 +7,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @information = @user.information
     @comment = @user.comments.build
-    @comment.user_id = @user.id
   end
 
   def new
