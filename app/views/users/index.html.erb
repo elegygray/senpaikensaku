@@ -9,10 +9,12 @@
             </div>
             <div class="panel-body">
               <p class="information-title name"><%= link_to user.name, user %></p>
-              <% @information = user.information  %>
-              <p class="information-title"><%= @information.highschool %></p>
-              <p class="information-title"><%= @information.university %></p>
-              <p class="information-title"><%= @information.faculty %></p>
+              <% if user.information.present? %>
+                <% @information = user.information  %>
+                <p class="information-title"><%= @information.highschool %></p>
+                <p class="information-title"><%= @information.university %></p>
+                <p class="information-title"><%= @information.faculty %></p>
+              <% end %>
             </div>
           </div>
         </div>
